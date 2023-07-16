@@ -58,16 +58,16 @@ const linksList = [
     link: '/todo',
   },
   {
-    title: 'fruitsAndVegetables',
-    caption: 'fruitsAndVegetablesCaption',
-    icon: 'eco',
-    link: '/fruitsAndVegetables',
-  },
-  {
     title: 'shoppingList',
     caption: 'shoppingListCaption',
     icon: 'shopping_cart',
     link: '/shoppingList',
+  },
+  {
+    title: 'fruitsAndVegetables',
+    caption: 'fruitsAndVegetablesCaption',
+    icon: 'eco',
+    link: '/fruitsAndVegetables',
   },
   {
     title: 'settings',

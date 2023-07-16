@@ -73,7 +73,7 @@
       <q-btn
         class="q-mt-md q-ml-sm"
         color="negative"
-        icon="delete"
+        icon="clear_all"
         round
         size="1.2em"
         @click="confirmDialog = true"
