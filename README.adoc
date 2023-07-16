@@ -38,7 +38,7 @@ quasar build
 ```
 
 === Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+See https://v2.quasar.dev/quasar-cli-vite/quasar-config-js[Configuring quasar.config.js]
 
 == App
-The App work with the [MemoryX API](https://github.com/Furiza31/MemoryX-API)
+The App work with the https://github.com/Furiza31/MemoryX-API[MemoryX API]
