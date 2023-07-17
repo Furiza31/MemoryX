@@ -5,8 +5,17 @@
         class="absolute-top-right text-subtitle2 rounded-borders"
         style="background-color: transparent"
       >
-        <q-btn color="primary" icon="bookmark_border" round dense />
-        <q-btn color="primary" icon="bookmark" round dense />
+        <q-btn
+          color="primary"
+          :icon="saved ? 'bookmark' : 'bookmark_border'"
+          round
+          dense
+          @click="
+            saved
+              ? $emit('delete-recipe', recipe)
+              : $emit('save-recipe', recipe)
+          "
+        />
       </div>
     </q-img>
 
@@ -92,11 +101,15 @@ export default defineComponent({
       image: this.recipe.images[0].replace(' ', ''),
     };
   },
-  emits: ['show-recipe'],
+  emits: ['show-recipe', 'save-recipe', 'delete-recipe'],
   props: {
     recipe: {
       type: Object as () => Recipe,
       required: true,
+    },
+    saved: {
+      type: Boolean,
+      default: false,
     },
   },
 });

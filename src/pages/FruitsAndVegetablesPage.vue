@@ -80,6 +80,9 @@
         :key="recipe.name"
         :recipe="recipe"
         @show-recipe="showRecipe"
+        @save-recipe="saveRecipe"
+        @delete-recipe="deleteRecipe"
+        :saved="recipe.saved"
       />
       <div v-if="recipes.length === 0" class="text-h6">
         {{ $t('noRecipeFound') }}
@@ -125,6 +128,7 @@ export default defineComponent({
       recipes: [] as Recipe[],
       recipeToShow: {} as Recipe,
       showRecipeDialog: false,
+      savedRecipes: [] as { id: number; url: string }[],
     };
   },
   async mounted() {
@@ -136,8 +140,66 @@ export default defineComponent({
       ].id
     );
     await this.searchRecipes();
+    await this.getSavedRecipes();
+    this.isRecipesSaved();
   },
   methods: {
+    deleteRecipe(recipe: Recipe) {
+      api.delete(`/recipes/${recipe.id}`).then(() => {
+        this.$q.notify({
+          message: this.$t('recipeDeleted'),
+          color: 'primary',
+        });
+        recipe.saved = false;
+      });
+    },
+    isRecipesSaved() {
+      this.recipes.forEach((recipe) => {
+        recipe.saved = this.savedRecipes.some(
+          (savedRecipe) => savedRecipe.url === recipe.url
+        );
+        if (recipe.saved) {
+          recipe.id = this.savedRecipes.find(
+            (savedRecipe) => savedRecipe.url === recipe.url
+          )?.id as number;
+        }
+      });
+    },
+    async getSavedRecipes() {
+      return new Promise((resolve, reject) => {
+        this.loading = true;
+        api
+          .get('/recipes/urls')
+          .then((response) => {
+            this.savedRecipes = response.data.urls as {
+              id: number;
+              url: string;
+            }[];
+            this.loading = false;
+            resolve(response);
+          })
+          .catch((error) => {
+            console.log(error);
+            this.loading = false;
+            reject(error);
+          });
+      });
+    },
+    saveRecipe(recipe: Recipe) {
+      api
+        .post('/recipes', recipe)
+        .then((response) => {
+          this.$q.notify({
+            message: this.$t('recipeSaved'),
+            color: 'primary',
+          });
+          recipe.id = response.data.id;
+          recipe.saved = true;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     showRecipe(recipe: Recipe) {
       this.recipeToShow = recipe;
       this.showRecipeDialog = true;
@@ -147,7 +209,7 @@ export default defineComponent({
         this.loading = true;
         let currentMonth = new Date().getMonth();
         api
-          .get(`fruitsAndVegetables/${currentMonth}`)
+          .get(`/fruitsAndVegetables/${currentMonth}`)
           .then((response) => {
             this.fruitsAndVegetablesOfTheMonth = response.data
               .fruitsAndVegetables as FruitAndVegetable[];
@@ -173,6 +235,7 @@ export default defineComponent({
           .then((response) => {
             this.loading = false;
             this.recipes = response.data.recipes;
+            this.isRecipesSaved();
             resolve(response);
           })
           .catch((error) => {

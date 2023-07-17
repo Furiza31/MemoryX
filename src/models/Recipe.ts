@@ -13,6 +13,8 @@ interface Recipe {
   tags: string[];
   totalTime: number;
   url: string;
+  saved?: boolean;
+  id?: number;
 }
 
 export default Recipe;

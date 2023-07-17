@@ -64,4 +64,6 @@ export default {
   'newShoppingItem': 'Nouvel article',
   'addedToShoppingList': 'Ajouté à la liste de courses',
   'confirmDeleteShoppingList': 'Êtes-vous sûr de vouloir supprimer tous les articles de la liste de courses?',
+  'recipeSaved': 'Recette sauvegardée',
+  'recipeDeleted': 'Recette supprimée',
 }

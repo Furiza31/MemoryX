@@ -64,4 +64,6 @@ export default {
   'newShoppingItem': 'New shopping item',
   'addedToShoppingList': 'Added to shopping list',
   'confirmDeleteShoppingList': 'Are you sure you want to delete this shopping list?',
+  'recipeSaved': 'Recipe saved',
+  'recipeDeleted': 'Recipe deleted',
 }
