@@ -66,4 +66,10 @@ export default {
   'confirmDeleteShoppingList': 'Are you sure you want to delete this shopping list?',
   'recipeSaved': 'Recipe saved',
   'recipeDeleted': 'Recipe deleted',
+  'savedRecipes': 'Saved recipes',
+  'savedRecipesCaption': 'Manage your saved recipes',
+  '404': '404',
+  'pageNotFound': 'Oops. Nothing here...',
+  'goToHome': 'Go to home',
+  'noRecipeSaved': 'No recipe saved'
 }

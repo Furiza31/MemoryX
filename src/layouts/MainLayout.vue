@@ -70,6 +70,12 @@ const linksList = [
     link: '/fruitsAndVegetables',
   },
   {
+    title: 'savedRecipes',
+    caption: 'savedRecipesCaption',
+    icon: 'dinner_dining',
+    link: '/savedRecipes',
+  },
+  {
     title: 'settings',
     caption: 'settingsCaption',
     icon: 'settings',

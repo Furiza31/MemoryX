@@ -66,4 +66,10 @@ export default {
   'confirmDeleteShoppingList': 'Êtes-vous sûr de vouloir supprimer tous les articles de la liste de courses?',
   'recipeSaved': 'Recette sauvegardée',
   'recipeDeleted': 'Recette supprimée',
+  'savedRecipes': 'Recettes sauvegardées',
+  'savedRecipesCaption': 'Gérez vos recettes sauvegardées',
+  '404': '404',
+  'pageNotFound': 'Oops. Rien ici...',
+  'goToHome': 'Aller à l\'accueil',
+  'noRecipeSaved': 'Aucune recette sauvegardée'
 }

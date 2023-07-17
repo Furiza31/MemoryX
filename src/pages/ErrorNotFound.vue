@@ -1,22 +1,19 @@
 <template>
-  <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
+  <div class="fullscreen page text-white text-center q-pa-md flex flex-center">
     <div>
-      <div style="font-size: 30vh">
-        404
-      </div>
+      <div style="font-size: 30vh">{{ $t('404') }}</div>
 
-      <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
-      </div>
+      <div class="text-h2" style="opacity: 0.4">{{ $t('pageNotFound') }}</div>
 
       <q-btn
         class="q-mt-xl"
-        color="white"
-        text-color="blue"
+        color="transparent"
+        text-color="white"
         unelevated
         to="/"
-        label="Go Home"
+        :label="$t('goToHome')"
         no-caps
+        style="border: 1px solid white"
       />
     </div>
   </div>
@@ -26,6 +23,12 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'ErrorNotFound'
+  name: 'ErrorNotFound',
 });
 </script>
+
+<style lang="scss" scoped>
+.page {
+  background: linear-gradient(90deg, $primary, $secondary);
+}
+</style>
