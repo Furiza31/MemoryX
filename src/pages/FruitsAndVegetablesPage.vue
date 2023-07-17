@@ -2,52 +2,54 @@
   <q-page class="q-pa-sm">
     <!-- search bar with button -->
     <div>
-      <q-input v-model="search" dense :label="$t('searchRecipe')">
-        <template v-slot:prepend>
-          <span
-            v-for="fruitAndVegetable in fruitsAndVegetablesInSearch"
-            :key="fruitAndVegetable"
-            @click="
-              fruitsAndVegetablesInSearch.splice(
-                fruitsAndVegetablesInSearch.indexOf(fruitAndVegetable),
-                1
-              )
-            "
-          >
-            <q-chip color="primary" text-color="white" class="cursor-pointer">
-              <template v-slot:default>
-                <span>{{
-                  fruitsAndVegetablesName(
-                    fruitsAndVegetablesOfTheMonth.find(
-                      (fruitAndVegetableOfTheMonth) =>
-                        fruitAndVegetableOfTheMonth.id === fruitAndVegetable
-                    ) as FruitAndVegetable
-                  )
-                }}</span>
-                <span>{{
-                  (
-                    fruitsAndVegetablesOfTheMonth.find(
-                      (fruitAndVegetableOfTheMonth) =>
-                        fruitAndVegetableOfTheMonth.id === fruitAndVegetable
-                    ) as FruitAndVegetable
-                  ).emoji
-                }}</span>
-              </template>
-            </q-chip>
-          </span>
-        </template>
-        <template v-slot:append>
-          <q-btn
-            dense
-            color="primary"
-            icon="search"
-            :disable="
-              search.length === 0 && fruitsAndVegetablesInSearch.length === 0
-            "
-            @click="searchRecipes"
-          />
-        </template>
-      </q-input>
+      <q-form @submit="searchRecipes">
+        <q-input v-model="search" dense :label="$t('searchRecipe')">
+          <template v-slot:prepend>
+            <span
+              v-for="fruitAndVegetable in fruitsAndVegetablesInSearch"
+              :key="fruitAndVegetable"
+              @click="
+                fruitsAndVegetablesInSearch.splice(
+                  fruitsAndVegetablesInSearch.indexOf(fruitAndVegetable),
+                  1
+                )
+              "
+            >
+              <q-chip color="primary" text-color="white" class="cursor-pointer">
+                <template v-slot:default>
+                  <span>{{
+                    fruitsAndVegetablesName(
+                      fruitsAndVegetablesOfTheMonth.find(
+                        (fruitAndVegetableOfTheMonth) =>
+                          fruitAndVegetableOfTheMonth.id === fruitAndVegetable
+                      ) as FruitAndVegetable
+                    )
+                  }}</span>
+                  <span>{{
+                    (
+                      fruitsAndVegetablesOfTheMonth.find(
+                        (fruitAndVegetableOfTheMonth) =>
+                          fruitAndVegetableOfTheMonth.id === fruitAndVegetable
+                      ) as FruitAndVegetable
+                    ).emoji
+                  }}</span>
+                </template>
+              </q-chip>
+            </span>
+          </template>
+          <template v-slot:append>
+            <q-btn
+              dense
+              color="primary"
+              icon="search"
+              :disable="
+                search.length === 0 && fruitsAndVegetablesInSearch.length === 0
+              "
+              @click="searchRecipes"
+            />
+          </template>
+        </q-input>
+      </q-form>
     </div>
     <q-expansion-item
       :label="$t('fruitsAndVegetablesOfTheMonth')"
