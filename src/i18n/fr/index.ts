@@ -71,5 +71,7 @@ export default {
   '404': '404',
   'pageNotFound': 'Oops. Rien ici...',
   'goToHome': 'Aller à l\'accueil',
-  'noRecipeSaved': 'Aucune recette sauvegardée'
+  'noRecipeSaved': 'Aucune recette sauvegardée',
+  'calendar': 'Calendrier',
+  'calendarCaption': 'Gérez votre emploi du temps',
 }

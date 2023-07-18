@@ -76,6 +76,12 @@ const linksList = [
     link: '/savedRecipes',
   },
   {
+    title: 'calendar',
+    caption: 'calendarCaption',
+    icon: 'calendar_month',
+    link: '/calendar',
+  },
+  {
     title: 'settings',
     caption: 'settingsCaption',
     icon: 'settings',
