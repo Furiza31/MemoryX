@@ -82,6 +82,12 @@ const linksList = [
     link: '/calendar',
   },
   {
+    title: 'finance',
+    caption: 'financeCaption',
+    icon: 'attach_money',
+    link: '/finance',
+  },
+  {
     title: 'settings',
     caption: 'settingsCaption',
     icon: 'settings',

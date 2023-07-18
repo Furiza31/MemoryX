@@ -74,4 +74,6 @@ export default {
   'noRecipeSaved': 'No recipe saved',
   'calendar': 'Calendar',
   'calendarCaption': 'Manage your schedule',
+  'finance': 'Finance',
+  'financeCaption': 'Manage your money',
 }

@@ -74,4 +74,6 @@ export default {
   'noRecipeSaved': 'Aucune recette sauvegardée',
   'calendar': 'Calendrier',
   'calendarCaption': 'Gérez votre emploi du temps',
+  'finance': 'Finance',
+  'financeCaption': 'Gérez votre argent',
 }
