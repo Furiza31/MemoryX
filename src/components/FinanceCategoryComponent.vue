@@ -44,7 +44,7 @@
       <q-card-section class="text-h6">
         <q-item>
           <q-item-section>
-            <q-item-label class="text-h6">Update Value</q-item-label>
+            <q-item-label class="text-h6">{{ $t('updateValue') }}</q-item-label>
           </q-item-section>
           <q-item-section
             side
@@ -90,9 +90,9 @@
         </q-input>
       </q-card-section>
       <q-card-actions align="right">
-        <q-btn label="Cancel" color="negative" flat @click="cancel()" />
+        <q-btn :label="$t('cancel')" color="negative" flat @click="cancel()" />
         <q-btn
-          label="Update"
+          :label="$t('ok')"
           color="primary"
           flat
           v-close-popup

@@ -5,7 +5,7 @@
         <q-card-section>
           <q-input
             v-model="bank"
-            label="Banque"
+            :label="$t('bank')"
             type="number"
             color="primary"
             :debounce="500"
@@ -16,7 +16,7 @@
           </q-input>
           <q-input
             v-model="salary"
-            label="Salaire"
+            :label="$t('salary')"
             type="number"
             color="primary"
           >
@@ -26,7 +26,7 @@
           </q-input>
           <div class="q-mt-lg">
             <label for="saving">
-              Économie
+              {{ $t('saving') }}
               <q-icon name="euro_symbol" />
             </label>
             <q-slider
@@ -47,7 +47,7 @@
         <q-card-actions align="right">
           <q-btn
             color="primary"
-            label="Ajouter une section"
+            :label="$t('addSection')"
             @click="addSectionDialog()"
           />
         </q-card-actions>
@@ -57,7 +57,7 @@
         <q-card-section>
           <q-item>
             <q-item-section>
-              <q-item-label>Économie réalisé par mois</q-item-label>
+              <q-item-label>{{ $t('savingsMadePerMonth') }}</q-item-label>
             </q-item-section>
             <q-item-section
               side
@@ -69,7 +69,7 @@
           </q-item>
           <q-item>
             <q-item-section>
-              <q-item-label>Économie réalisé par an</q-item-label>
+              <q-item-label>{{ $t('savingsMadePerYear') }}</q-item-label>
             </q-item-section>
             <q-item-section
               side
@@ -88,7 +88,7 @@
         <q-card-section>
           <q-item>
             <q-item-section>
-              <q-item-label>Argent total par mois</q-item-label>
+              <q-item-label>{{ $t('totalMoneyPerMonth') }}</q-item-label>
             </q-item-section>
             <q-item-section
               side
@@ -104,7 +104,7 @@
           </q-item>
           <q-item>
             <q-item-section>
-              <q-item-label>Argent total par an</q-item-label>
+              <q-item-label>{{ $t('totalMoneyPerYear') }}</q-item-label>
             </q-item-section>
             <q-item-section
               side
@@ -128,7 +128,9 @@
         <q-card-section style="padding: 0px">
           <q-item>
             <q-item-section class="q-ml-md">
-              <q-item-label class="text-h6">Argent non utilisé</q-item-label>
+              <q-item-label class="text-h6">
+                {{ $t('moneyNotUsed') }}
+              </q-item-label>
             </q-item-section>
             <q-item-section
               side
@@ -154,14 +156,14 @@
     <q-dialog v-model="showAddSectionDialog" persistent>
       <q-card style="max-width: 350px; min-width: 300px">
         <q-card-section>
-          <div class="text-h5 text-center">{{ $t('newTodo') }}</div>
+          <div class="text-h5 text-center">{{ $t('newSection') }}</div>
         </q-card-section>
         <q-form @submit="add()">
           <q-card-section>
             <q-input
               v-model="newSection.name"
               type="text"
-              :label="$t('todoName')"
+              :label="$t('sectionName')"
               :rules="[(val) => val.length > 0 || $t('fieldRequired')]"
             >
               <template v-slot:prepend>
@@ -170,7 +172,7 @@
             </q-input>
             <q-toggle
               v-model="newSection.unexpected"
-              label="Inattendu"
+              :label="$t('unexpected')"
               color="primary"
               :true-value="1"
               :false-value="0"
