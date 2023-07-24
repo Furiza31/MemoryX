@@ -89,4 +89,6 @@ export default {
   'newSection': 'Nouvelle section',
   'sectionName': 'Nom de la section',
   'unexpected': 'Inattendu',
+  'fitness': 'Fitness',
+  'fitnessCaption': 'Gérez vos entraînements',
 }

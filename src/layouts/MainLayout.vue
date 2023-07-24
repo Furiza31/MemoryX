@@ -88,6 +88,12 @@ const linksList = [
     link: '/finance',
   },
   {
+    title: 'fitness',
+    caption: 'fitnessCaption',
+    icon: 'fitness_center',
+    link: '/fitness',
+  },
+  {
     title: 'settings',
     caption: 'settingsCaption',
     icon: 'settings',
